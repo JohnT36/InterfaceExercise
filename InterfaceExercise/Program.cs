@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -6,39 +7,56 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            var jesiah = new Car();
+            jesiah.Doors = 4;
+            jesiah.Trunk = true;
+            jesiah.SunRoof = true;
+            jesiah.Engine = "V6";
+            jesiah.Wheels = 4;
+            jesiah.Honk = "HOOOONK";
 
-            //Create 3 classes called Car , Truck , & SUV
+            var alina = new Suv();
+            alina.Doors = 4;            
+            alina.Engine = "V6";
+            alina.Wheels = 4;
+            alina.Honk = "BBBEEEEEP";
 
-            //In your IVehicle
-            
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: All vehicles have a number of wheels... for now..
-                 */
-            
 
-            //In ICompany
-            
-                /*Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 *
-                 *
-                 * Example: public string Logo { get; set; }
-                 */
+            var john = new Truck();
+            john.Doors = 4;            
+            john.Engine = "V6";
+            john.Wheels = 4;
+            john.Honk = "WWWWWWAAAAAAAAAHHHHWWWWW";
 
-            //In each of your car, truck, and suv classes
+            Console.WriteLine(john.Doors);
+            Console.WriteLine(john.Engine);
+            Console.WriteLine(john.Wheels);
+            Console.WriteLine(john.Honk);
 
-                /*Create 2 members that are specific to each class
-                 * Example: truck has a bed size while car has a trunk while suv has a cargo hold size
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 * 
-                 */
+            Console.WriteLine(jesiah.Doors);
+            Console.WriteLine(jesiah.Engine);
+            Console.WriteLine(jesiah.Wheels);
+            Console.WriteLine(jesiah.Honk);
 
-            //Now, create objects of your 3 classes and give their members values;
-            //Creatively display and organize their values
+            Console.WriteLine(alina.Doors);
+            Console.WriteLine(alina.Engine);
+            Console.WriteLine(alina.Wheels);
+            Console.WriteLine(alina.Honk);
+
+            var vehicles = new List<IVehicle>();
+            vehicles.Add(john);
+            vehicles.Add(alina);
+            vehicles.Add(jesiah);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle.Engine, vehicle.Wheels, vehicle.Honk, vehicle.Doors);
+
+            }
+
+          
+
         }
     }
 }
